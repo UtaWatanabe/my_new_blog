@@ -1,0 +1,13 @@
+<%= form_for @post do |f| %>
+
+    <p>
+        title：<%=  f.text_field :title %>
+    </p>
+    <p>
+        body：<%= f.text_area :body %>
+    </p>
+    <p>
+        category：<%= f.text_field :category %>
+    </p>
+<%= f.submit "登録" %>
+<% end %>
