@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 def index
-    @post = Post.all
+    # @post = Post.all
     @author = Author.find(1)
+    @posts = Post.page(params[:page]).per(10)
 end
 def new
     @post = Post.new
