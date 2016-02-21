@@ -7,7 +7,7 @@
         <li>
           <h2><%= link_to post.title, post_path(post) %></h2>
           <p><%= post.category %></p>
-          <p><%= truncate post.body %></p>
+          <p><%= post.body.truncate(40) %></p>
           <%= link_to "続きを読む", post_path(post) %>
           <%= link_to '削除', post_path(post), method: :delete %>
           <%= link_to '編集', edit_path(post) %>
@@ -18,12 +18,18 @@
 
   <div class="col-md-4">
     <%= image_tag @author.image_url, class:"img-responsive" %>
-    <p>著者情報</p>
     <p><%= @author.name %></p>
     <p><%= @author.description %></p>
     <%= link_to '記事を作成', '/posts/new' %>
-
-
+    <h3>最近書いた記事</h3>
+      <ul>
+        <% @posts.each do |post| %>
+        <li>
+          <h5><%= link_to post.title, post_path(post) %></h5>
+          <p><%= post.body.truncate(15) %></p>
+        </li>
+      <% end -%>
+      </ul>
   </div>
 </div> <!-- "row" -->
 
