@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
 def index
     @post = Post.all
+    @author = Author.find(1)
 end
 def new
     @post = Post.new
 end
   def show
     @post = Post.find(params[:id])
+
   end
 
   def create
